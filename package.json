@@ -1,7 +1,7 @@
 {
   "name": "hrtracker",
   "version": "1.0.0",
-  "description": "",
+  "description": "Employee Tracking App",
   "main": "app.js",
   "dependencies": {
     "inquirer": "^7.0.4",
@@ -16,7 +16,7 @@
     "type": "git",
     "url": "git+https://github.com/philipipara/HRTracker.git"
   },
-  "author": "",
+  "author": "Philip Iparaguirre",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/philipipara/HRTracker/issues"

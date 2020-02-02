@@ -6,7 +6,7 @@ var connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: "root",
-    password:"$Eager15",
+    password:"(Don't want to give out my password because I use it for everything. oops)",
     database:"worker_db"
 });
 
@@ -56,13 +56,13 @@ function employeeQuestions(){
         {
             type: "list",
             message: "What is the name of the role?",
-            choices:["reception", "call rep"],
+            choices:["reception", "sales rep", "accountant", "manager"],
             name: "rolename"
         },
         {
             type: "list",
             message: "What department does this employee work in?",
-            choices: ["sales", "collections", "administrative"],
+            choices: ["sales", "collections", "administrative", "management"],
             name:"dept_ID"
         },
         {
@@ -105,7 +105,7 @@ function employeeQuestions(){
                 if (err) throw err;
                 console.table(res)
             });
-            
+            connection.end();
         })
 }
 
@@ -132,6 +132,8 @@ function roleQuestions(){
                     if (err) throw err;
                     console.log( "success")
                 })
+                connection.end();        
+
         })
 }
 
@@ -151,6 +153,7 @@ function deptQuestions(){
                     if (err) throw err;
                     console.log(this)
                 })
+                connection.end();
         })
 }
 
@@ -158,6 +161,7 @@ function employeeList(){
     connection.query("SELECT first_name, last_name FROM employee;", function (err, res){
         if (err) throw err;
         console.table(res)
+        connection.end();
     });
 }
 
@@ -165,6 +169,7 @@ function roleList(){
     connection.query("SELECT role.title, role.salary FROM role;", function (err, res){
         if (err) throw err;
         console.table(res)
+        connection.end();
     });
 }
 
@@ -172,6 +177,7 @@ function deptList(){
     connection.query("SELECT department.dept_name FROM department;", function (err, res){
         if (err) throw err;
         console.table(res)
+        connection.end();
     });    
 }
 
